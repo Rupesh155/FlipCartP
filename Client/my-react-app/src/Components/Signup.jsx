@@ -1,12 +1,12 @@
 import { Link } from '@mui/material'
 import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom'
-
+import axios from 'axios'
 const Signup = () => {
     let [input,SetInput]=useState({
         name:"",
         email:"",
-        password:""
+        passWord:""
     })
 
     function fun1(e){
@@ -15,10 +15,15 @@ const Signup = () => {
         console.log(input);
 
     }
-    function done(e){
+    async  function done(e){
         e.preventDefault();
+        console.log('chal rha');
+        let res=  await  axios.post('http://localhost:4000/api/users',input)
 
     }
+
+
+
   return (
     <div>
         <form action=''  onSubmit={done}>  
@@ -31,7 +36,7 @@ const Signup = () => {
 
         <br/>
         <br/>
-        <input   name='password'   value={input.password} onChange={fun1}   type='password' placeholder='Enter your password'/>
+        <input   name='passWord'   value={input.passWord} onChange={fun1}   type='password' placeholder='Enter your password'/>
         <br/>
         <br/>
         <button  type='submit'> Signup</button>

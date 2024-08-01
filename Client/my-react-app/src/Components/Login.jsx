@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-
 const Login = () => {
     let [input,SetInput]=useState({
         email:"",
@@ -13,15 +12,17 @@ const Login = () => {
         console.log(input);
 
     }
-    function done(e){
+   async  function done(e){
         e.preventDefault();
+           
+        let res=  await  axios.post('http://localhost:4000/api/users',input)
+           
+    
 
     }
   return (
     <div>
         <form action=''  onSubmit={done}>  
-
-
         <input    name='email'  value={input.email}  onChange={fun1}  type='email' placeholder='Enter your email'/>
 
         <br/>

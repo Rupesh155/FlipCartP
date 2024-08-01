@@ -150,37 +150,55 @@
 
 
 
-let step1=   function(){
-    return new Promise((res,rej)=>{
-        setTimeout(()=>{
-            res('photo select ho gyii')
+// let step1=   function(){
+//     return new Promise((res,rej)=>{
+//         setTimeout(()=>{
+            
+//             res('photo select ho gyii')
 
-        },4000)
+//         },4000)
 
-    })
+//     })
 
-}
+// }
 
-let step2=   function(){
-    return new Promise((res,rej)=>{
-        setTimeout(()=>{
-            res('filtrereddddddddd')
+// let step2=   function(){
+//     return new Promise((res,rej)=>{
+//         setTimeout(()=>{
+//             res('filtrereddddddddd')
 
-        },4000)
-    })
+//         },4000)
+//     })
 
-}
+// }
 
-step1().then((data)=>{
-    console.log(data);
-    return step2().
-    then((filtreeddd)=>{
-        console.log(filtreeddd);
+
+//   async function kalajadu(){
+// let data=  await  step1()
+//     console.log(data);
+//     console.log('hello');
+//    let data1=   await  step2()
+//    console.log('hiii');
+//    console.log(data1);
+// }
+// kalajadu()
+
+
+
+
+
+
+
+// step1().then((data)=>{
+//     console.log(data);
+//     return step2().
+//     then((filtreeddd)=>{
+//         console.log(filtreeddd);
         
 
-    })
+//     })
 
-})
+// })
 
 //  async function magic(){
 //    let data=  await step1()
@@ -190,6 +208,169 @@ step1().then((data)=>{
 
 // }
 // magic()
+
+
+// Dom
+
+
+// console.log('hello');
+// // console.log(kyaayega);
+// console.log(document);
+//   let btn= document.querySelectorAll('h1')
+// for(let i of btn){
+//     i.style.color='red'
+// }
+
+//   btn.style.color='red'
+//  let btn=   document.getElementsByClassName('two')
+//  let btn=  document.querySelectorAll('button')
+//  console.log(btn);
+  
+// setTimeout(()=>{
+//     console.log('one');
+
+// },1000)
+  
+// setTimeout(()=>{
+//     console.log('three');
+
+// },0)
+
+// console.log('two');
+
+
+
+// function step1(fn){
+//     setTimeout(()=>{
+//         console.log('photo select ho gyii hehehe');
+//         console.log(fn,"aao dekh letehia");
+//         fn()
+
+
+//     },5000)
+
+// }
+// function step2(fn){
+//     setTimeout(()=>{
+   
+//         console.log('filterredddd imageeeeee hehehe');
+        
+//         fn()
+
+//     },4000)
+
+// }
+
+// function step3(){
+//     setTimeout(()=>{
+//         console.log('captionsssssss hehehe');
+
+//     },3000)
+
+// }
+// function step4(){
+//     setTimeout(()=>{
+//         console.log('posttttttt hehehe');
+
+//     },2000)
+
+// }
+// callback hell
+// step1( ()=>{
+//     step2( ()=>{
+//         step3()
+//     } )
+// } )
+       
+//    let promise=     new Promise((res,rej)=>{
+//                let barish=false
+//                if(barish){
+//                 rej()
+//                }
+//                else{
+//                 res()
+//                }
+//                 //    res()
+//                 // rej()
+
+//        })
+    //    promise.then(()=>{
+    //     console.log('class aana hai ');
+
+    //    }).catch(()=>{
+    //     console.log('class nhi aa paunga barish ho rhiiii');
+    //    })
+    //    console.log(promise,"hehehe");
+
+
+
+    let step1=function(){
+        return new Promise((res,rej)=>{
+            // console.log('pho');
+            setTimeout(()=>{
+                // console.log('photo');
+                res('photo')
+            },4000)
+
+        })
+
+    }
+    let step2=function(){
+        return new Promise((res,rej)=>{
+            // console.log('pho');
+            setTimeout(()=>{
+                console.log('filtreddddddd');
+                res()
+            },4000)
+
+        })
+
+    }
+
+
+    async function  kalajadu(){
+     await  step1()
+  
+       await  step2()
+
+    }
+    console.log(kalajadu());
+
+
+
+    // step1().then(()=>{
+    //     return step2().then(()=>{
+
+    //     })
+    // })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

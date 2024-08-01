@@ -1,13 +1,15 @@
 
 let mongoose = require('mongoose')
 let express = require('express')
+let cors= require('cors')
 let app = express()
 app.use(express.json())
+app.use(cors())
 let loginRoutes = require('./routes/login')
 app.use(express.urlencoded({ extended: true }));
 let userRoutes = require('./routes/user')
 let product =require('./routes/product')
-mongoose.connect('mongodb://127.0.0.1:27017/zomato').
+mongoose.connect('mongodb://127.0.0.1:27017/flipcart').
     then(() => {
         console.log('db');
 

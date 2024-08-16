@@ -1,0 +1,64 @@
+#parent{
+    border: 2px solid green;
+    height: 500px;
+    /* transition: 3s; */
+}
+#parent div{
+    height: 100px;
+    transition: 3s;
+    transition-delay: 2s;
+    /* transition-property:margin-left ; */
+    width: 100px;
+}
+#parent:hover .one{
+    margin-left: 1216px;
+    border-radius: 50%;
+
+}
+#parent div:nth-of-type(1){
+    background-color: red;
+    transition-timing-function: linear;
+}
+#parent div:nth-of-type(2){
+    background-color: slateblue;
+    transition-timing-function: ease-in;
+}
+#parent div:nth-of-type(3){
+    background-color: black;
+    transition-timing-function: ease-out;
+}
+#parent div:nth-of-type(4){
+    background-color: yellow;
+    transition-timing-function: ease-in-out;
+}
+h1{
+text-align: center;
+}
+,
+h1:hover{
+    /* transform: translate(400px,400px); */
+    /* transform: scaleY(2); */
+    /* transform: rotate(180deg); */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

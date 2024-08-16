@@ -9,7 +9,7 @@ const productSchema = new mongoose.Schema({
     countInStock: { type: Number, required: true, default: 0 },
     rating: { type: Number, default: 0 },
     numReviews: { type: Number, default: 0 },
-    images: [String]
+    images: {type:String}
 }, { timestamps: true });
 
 const Product = mongoose.model('Product', productSchema);

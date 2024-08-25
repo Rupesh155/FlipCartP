@@ -60,32 +60,32 @@
 // })
 
 
-let express=  require('express')                      
-let app=  express()
+// let express=  require('express')                      
+// let app=  express()
 
 
-app.use(express.urlencoded({extended:true}))
-app.use(express.json())
-app.set('view engine', 'ejs')
+// app.use(express.urlencoded({extended:true}))
+// app.use(express.json())
+// app.set('view engine', 'ejs')
 
-let arr=[1,2,3,34,5,1,2,3,4,5,1,2,234,5,1,2,334,45,56,7,88,1]
-app.get('/',(req,res)=>{
-    console.log(req.params)
+// let arr=[1,2,3,34,5,1,2,3,4,5,1,2,234,5,1,2,334,45,56,7,88,1]
+// app.get('/',(req,res)=>{
+//     console.log(req.params)
 
-    res.render('index')
-    // res.render('index',{newData})
-})
+//    let newData=[1,2,3,45,5]
+//     res.render('index',{newData})
+// })
 
-app.get('/user'  ,(req,res)=>{
-       let user='hello'
-    res.send('hyw')
+// app.get('/user'  ,(req,res)=>{
+//        let user='hello'
+//     res.send('hyw')
 
-})
-app.post('/user',(req,res)=>{
-    console.log(req.body,"hehe");
-    res.send('mil gyaaaa heheheh')
+// })
+// app.post('/user',(req,res)=>{
+//     console.log(req.body,"hehe");
+//     res.send('mil gyaaaa heheheh')
 
-})
+// })
 // app.get('/search',(req,res)=>{
 
 //     // localhost:4000/search?firstName=rahul && lastName=kumar
@@ -103,9 +103,73 @@ app.post('/user',(req,res)=>{
 
 // })
 
-app.listen(4000,()=>{
-    console.log('server chal gyaa');
+// app.listen(4000,()=>{
+//     console.log('server chal gyaa');
 
+// })
+
+
+
+let express=  require('express')
+let app=  express()
+app.set('view engine','ejs')
+app.use(express.static('public'))
+app.use(express.urlencoded({extended:true}))
+let comments = [
+    {
+        id:0,
+        username:"Sam",
+        comment:"chitkara is a nice university 0"
+    },
+    {
+        id:1,
+        username:"g2",
+        comment:"chitkara is a nice university 1"
+    },
+    {
+        id:2,
+        username:"vohra",
+        comment:"chitkara is a nice university 2"
+    }
+]
+
+app.get('/blog',(req,res)=>{
+
+    res.render('index',{comments})
+
+
+})
+app.get('/blog/new',(req,res)=>{
+    res.render('form')
+
+    
+
+
+})
+
+app.post('/blog',(req,res)=>{
+    // console.log(req.body,"heheh");
+    let {username,comment}=req.body
+    comments.push({username,comment,id:comments.length})
+    // res.render('index')
+    res.redirect('/blog')
+
+
+})
+app.get('/blog/:id',(req,res)=>{
+
+    let {id}=req.params
+   let newArr=  comments.find((a,b,c)=>{
+        return a.id==id
+
+    })
+    console.log(newArr,"neww");
+    console.log(id,"idd");
+    res.render('show',{newArr})
+
+})
+app.listen(5000,()=>{
+    console.log('server running on port no 5000');
 })
 
 

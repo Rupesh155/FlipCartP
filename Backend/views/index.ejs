@@ -1,36 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="index.css">
 </head>
 <body>
-
-<fieldset>
-    <legend> GET</legend>
-    <form action="/user" method="GET">
-        <input  type="text"  name="username" placeholder="Enter your name"/>
-        <br/>
-        <br/>
-        <input  type="number"  name="age" placeholder="Enter your age"/>
-    <br/>
-    <br/>
-<button>  save</button>
-</fieldset>
-
-<fieldset>  
-    <legend>POST</legend>
-    </form>
-    <form action="/user" method="POST">
-        <input  type="text"  name="username" placeholder="Enter your name"/>
-        <br/>
-        <br/>
-        <input  type="number"  name="age" placeholder="Enter your age"/>
-    <br/>
-    <br/>
-<button>  save</button>
-    </form>
-</fieldset>
+  <h1> Rest Apies</h1>
+   <%  for(let i of comments){%>
+    <div id="card">  
+    <h3>       <%=i.id %>   </h3>
+    <p>  <%=i.username %></p>
+    <h5> <%= i.comment %></h5>
+    <a href="/blog/<%=i.id %>"> show</a>
+  </div>
+ <% }%>
 </body>
 </html>

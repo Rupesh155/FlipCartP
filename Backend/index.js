@@ -167,7 +167,7 @@ app.get('/blog/:id',(req,res)=>{
     console.log(id,"idd");
     res.render('show',{newArr})
 
-})
+})   
 app.listen(5000,()=>{
     console.log('server running on port no 5000');
 })

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <fieldset>
+        <form action="/blog/<%=editData.id%>/edit/?_method=PATCH" method="POST"> /
+        <!-- <form  action="/blog/<%=editData.id%>/edit" method="POST"> -->
+            <input type="text"  name="username"  value="<%=editData.username %>" placeholder="Enter your username"/>
+            <br>
+            <br>
+            <input type="text"  name="comment" value="<%=editData.comment %>" placeholder="Enter your "/>
+            <br>
+            <br>
+            <button type="submit">update</button>
+        </form>
+    </fieldset>
+</body>
+</html>

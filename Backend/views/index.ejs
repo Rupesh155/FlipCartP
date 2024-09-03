@@ -9,12 +9,16 @@
 <body>
   <h1> Rest Apies</h1>
    <%  for(let i of comments){%>
-    <div id="card">  
+    <div id="parent">  
     <h3>       <%=i.id %>   </h3>
     <p>  <%=i.username %></p>
     <h5> <%= i.comment %></h5>
     <a href="/blog/<%=i.id %>"> show</a>
-  </div>
+    <a href="/blog/<%=i.id %>/edit"> edit</a>
+    <form action="/blog/<%=i.id %>/?_method=DELETE"  method="POST" >
+      <button type="submit"> delet</button>
+    </form>
+  </div
  <% }%>
 </body>
 </html>

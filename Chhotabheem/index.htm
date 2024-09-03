@@ -1,24 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="index.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body{
+      height: 100vh;
+      width: 100vw;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    #parent{
+      height: 300px;
+      width: 200px;
+      box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+ 
+      position: relative;
+      border-radius: 5px;
+    }
+    #child-a{
+      height: 50%;
+      width: 100%;
+
+    }
+    #child-b{
+      height: 50%;
+      width: 100%;
+      position: absolute;
+   
+      bottom: 70px;
+      left: 41px;
+
+    }
+    #child-b img{
+      border-radius: 50%;
+      height: 80%;
+      width: 60%;
+    }
+    
+    img{
+      height: 100%;
+      width: 100%;
+    }
+  </style>
 </head>
 <body>
-</body>
-<div class="navbar">
-  <a class="navlink">Codingblocks</a>
-  <div class="inner-navbar">
-    <a href="#" class="inner-navlink">Learn</a>
-    <a href="#" class="inner-navlink">Practice</a>
-    <a href="#" class="inner-navlink">Get hired</a>
-    <a href="#" class="inner-navlink">IDE</a>
+  <div id="parent">
+    <div id="child-a">
+      <img src="https://images.unsplash.com/photo-1719937206491-ed673f64be1f?q=80&w=2874&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"/>
+    </div>
+    <div id="child-b">
+<img  src="https://images.unsplash.com/photo-1725142515960-5f5c4dce501f?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"/>
+    </div>
   </div>
-  <a href="#" class="btn">Login</a>
-</div>
-</body>
-
 </body>
 </html>

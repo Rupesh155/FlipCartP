@@ -1,106 +1,73 @@
+// Set up the scene, camera, and renderer
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+const renderer = new THREE.WebGLRenderer();
+renderer.setSize(window.innerWidth, window.innerHeight);
+document.body.appendChild(renderer.domElement);
 
-let canvas=  document.querySelector('canvas')
-let ctx=       canvas.getContext('2d')
-let snakeCells=[[0,0]]
-let cell=50
-let count=0
- let direction='right'
- let gameOver=false
-let randomXell=generateRandomCell()
-let id= setInterval(()=>{
-   draw()
-   update()
- },100)
-document.addEventListener('keydown',(e)=>{
- if(e.key==='ArrowDown'){
-   direction='down'
- }
- else if(e.key==='ArrowUp')
-{
- direction='up'
-}     else if(e.key==='ArrowLeft'){
-direction='left'
+// Snake settings
+const snakeSegments = [];
+const segmentSize = 1;
+const snakeLength = 5;
+let direction = 'right';
+
+// Create the snake body segments
+for (let i = 0; i < snakeLength; i++) {
+    const geometry = new THREE.BoxGeometry(segmentSize, segmentSize, segmentSize);
+    const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
+    const segment = new THREE.Mesh(geometry, material);
+    segment.position.set(-i * segmentSize, 0, 0);
+    snakeSegments.push(segment);
+    scene.add(segment);
 }
 
-else{
-direction='right'
+// Create the snake head (as a sphere)
+const headGeometry = new THREE.SphereGeometry(segmentSize / 2, 32, 32);
+const headMaterial = new THREE.MeshBasicMaterial({ color: 0xff0000 });
+const head = new THREE.Mesh(headGeometry, headMaterial);
+snakeSegments.push(head);
+scene.add(head);
+
+// Camera position
+camera.position.z = 10;
+
+// Animation loop
+function animate() {
+    requestAnimationFrame(animate);
+    renderer.render(scene, camera);
+
+    // Move the snake based on the direction
+    for (let i = snakeSegments.length - 1; i > 0; i--) {
+        snakeSegments[i].position.copy(snakeSegments[i - 1].position);
+    }
+
+    // Move the head
+    const head = snakeSegments[snakeSegments.length - 1];
+    if (direction === 'right') {
+        head.position.x += segmentSize;
+    } else if (direction === 'left') {
+        head.position.x -= segmentSize;
+    } else if (direction === 'up') {
+        head.position.y += segmentSize;
+    } else if (direction === 'down') {
+        head.position.y -= segmentSize;
+    }
 }
-// console.log(e);
 
-})
+// Listen for keyboard inputs to change direction
+document.addEventListener('keydown', (event) => {
+    if (event.key === 'ArrowRight' && direction !== 'left') direction = 'right';
+    if (event.key === 'ArrowLeft' && direction !== 'right') direction = 'left';
+    if (event.key === 'ArrowUp' && direction !== 'down') direction = 'up';
+    if (event.key === 'ArrowDown' && direction !== 'up') direction = 'down';
+});
 
- function draw(){
-    if(gameOver){
-     clearInterval(id)
-     ctx.font='50px sans-sarif'
-     ctx.fillText('game over',100,50)
-     return;
-    }
-   ctx.clearRect(0,0,1400,700)
-   for(let i of snakeCells){
-     ctx.fillStyle='green'
-     ctx.fillRect(i[0],i[1],cell,cell)
-   }
-       ctx.fillStyle='red'
-   ctx.fillRect(randomXell[0],randomXell[1],cell,cell)
-   ctx.font='50px sans-sarif'
-   ctx.fillText(`${count}`, 100,100)
- } // draw()
- function update(){  
-   let headX=   snakeCells[snakeCells.length-1][0]
-   let headY=   snakeCells[snakeCells.length-1][1]
-   let newX
-   let newY
-    if(direction==='right'){
-     newX=headX+cell
-     newY=headY
-     if(newX===1400){
-       gameOver=true
-     }
-    }
-    else if(direction==='up'){
-     newX=headX
-     newY=headY-cell
+// Handle window resizing
+window.addEventListener('resize', () => {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+});
 
-     if(newY<0){
-       gameOver=true
-     }
-
-    }
-    else if(direction==='down'){
-     newX=headX
-     newY=headY+cell
-     if(newY===700){
-       gameOver=true
-     }
-    }else{
-     newX=headX-cell
-     newY=headY
-     if(newX<0){
-       gameOver=true
-     }
-    }
-   snakeCells.push([newX,newY])
-   // snakeCells.shift()
-   if(randomXell[0]===newX  && randomXell[1]===newY){
-     randomXell=generateRandomCell()
-     count++
-   }
-   else{
-     snakeCells.shift()
-   }
-   // console.log(newX,newY);
-   // console.log(headX,headY,"rrr");
- }
- // update()
-  function generateRandomCell(){
-   return[
-  Math.floor(Math.random()*1400/cell)*cell   ,
-  Math.floor(Math.random()*700/cell)*cell
-    
-   ]
-
-  }
-
-
-
+// Start the animation loop
+animate();

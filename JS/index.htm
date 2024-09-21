@@ -2,59 +2,127 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./index.css">
   <title>Document</title>
+  <style>
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  background-color: #1c1c1c;
+}
+
+#container {
+  width: 400px;
+  margin: auto;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  flex-grow: 1;
+  background-color: #1c1c1c;
+  border: 0;
+  outline: none;
+  font-size: 64px;
+  color: white;
+  text-align: right;
+  padding: 0px 32px;
+}
+
+.button-grid {
+  flex-grow: 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  gap: 5px;
+}
+
+button {
+  width: 80%;
+  height: 80%;
+  place-self: center;
+  border-radius: 50%;
+  border: 0;
+  font-size: 24px;
+  font-weight: 500;
+  cursor: pointer;
+
+  background-color: #505050;
+  color: white;
+
+  transition-property: transform;
+  transition-duration: 200ms;
+}
+
+button:active {
+  transform: scale(0.85);
+}
+
+.gray-button {
+  background-color: #d4d4d2;
+  color: #1c1c1c;
+}
+
+.yellow-btn {
+  background-color: #ff9500;
+  color: white;
+}
+
+.zero {
+  grid-column: span 2; 
+  border-radius: 35%;
+}
+  </style>
 </head>
 <body>
-  <script >
-    // console.log('hello');
-    // Number
-    5.5
-    5
-    // String
-    // 'cvft'
-    // Boolean
-    // true,false
-    // undefined
-    // null
 
-// int a=5; java
-// var vs let vs const
-  //  var a=5
-  //  var a=50
-  //  console.log(a);
+  <div id="container">
+    <input />
 
-  // let b=10
-  //  b=20    
-  //  console.log(b);
-  //  const c=51
-  //   c=101
-  //  console.log(c);
-  // var a=50
-  // console.log(a);
+    <div class="button-grid">
 
-  // var a='hello'
-  // var b='hiii'
-  // console.log(a+'         '     +b);
+      <button class="gray-button">C</button>
+      <button class="gray-button">**</button>
+      <button class="gray-button">%</button>
+      <button class="yellow-btn">/</button>
 
+      <button>7</button>
+      <button>8</button>
+      <button>9</button>
+      <button class="yellow-btn">*</button>
 
-// var b = 50
+      <button>4</button>
+      <button>5</button>
+      <button>6</button>
+      <button class="yellow-btn"> - </button>
 
-// = vs == vs ===
+      
+      <button>1</button>
+      <button>2</button>
+      <button>3</button>
+      <button class="yellow-btn">+</button>
+      
+      <button class="zero">0</button>
+      <button>.</button>
+      <button class="yellow-btn"> = </button>
+    </div>
+    
+  </div>
 
-// console.log(0==='');
-// let score=100
-// let to=score==100
-// console.log(to);
-
-console.log('hello');
-// console.log('errr');
-  </script>
+  <script src="./index.js"></script>
 </body>
 </html>
-
-
-
 
 
 

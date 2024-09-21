@@ -6,7 +6,30 @@
     <title>Document</title>
 </head>
 <body>
-    <h2> <%=arr %></h2>
-    <p> hoiib</p>
+    <fieldset>
+        <legend>GET</legend>
+    <form action="/user" method="GET">
+        <input name="username"  type="text "  placeholder="Enter your name"/>
+        <br>
+        <br>
+        <input  type="password"   name="pass" placeholder="Enter your password"/>
+        <br>
+        <br>
+        <button type="submit">send </button>
+    </form>
+</fieldset>
+
+<fieldset>
+    <legend>post</legend>
+<form action="/user" method="POST">
+    <input name="username"  type="text "  placeholder="Enter your name"/>
+    <br>
+    <br>
+    <input  type="password"   name="pass" placeholder="Enter your password"/>
+    <br>
+    <br>
+    <button type="submit">send </button>
+</form>
+</fieldset>
 </body>
 </html>

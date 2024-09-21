@@ -1,56 +1,27 @@
-#parent{
-  border: 2px  solid salmon;
-  height: 650px;
-  display: grid;
-  gap: 5px;
-  grid-template-columns: 200px 300px 400px;
-  grid-template-rows: 200px 200px ;
-  /* grid-auto-rows: 50px;
-  grid-auto-flow: column;
-  /* grid-auto-columns: 50px; */ */
-
-}
-#parent div{
-/* height: 100px; */
-}
-#parent div:nth-of-type(1){
-  background-color:red;
-  grid-column-start: 3;
-  grid-column-end: 3;
-  /* gap: 10px; */
-  row-gap: 10px;
-  /* grid-row-start: 2;
-  grid-row-end: 3; */
-  /* grid-column: 2/3; */
-
-
+/* styles.css */
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #f0f0f0;
 }
 
-#parent div:nth-of-type(2){
-  background-color:green;
-}
-#parent div:nth-of-type(3){
-  background-color:yellow;
-}
-#parent div:nth-of-type(4){
-  background-color:black;
+.editor {
+  text-align: center;
 }
 
-#parent div:nth-of-type(5){
-  background-color:blueviolet;
+canvas {
+  border: 1px solid #ccc;
+  max-width: 100%;
 }
-#parent div:nth-of-type(6){
-  background-color: orange;
+
+.controls {
+  margin-top: 10px;
 }
-#parent div:nth-of-type(7){
-  background-color: darkorchid;
+
+button {
+  margin: 0 5px;
 }
-#parent div:nth-of-type(8){
-  background-color: orchid;
-}
-#parent div:nth-of-type(9){
-  background-color: royalblue;
-}
-#parent div:nth-of-type(10){
-  background-color:blanchedalmond;
-}
+     ZX

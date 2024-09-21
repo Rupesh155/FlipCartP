@@ -219,50 +219,170 @@
 
 
 
-// // let express= require('express')
-// // let app= express()
-// // app.set('view engine','ejs')
-// // app.use(express.static('public'))
-// // app.use(express.urlencoded({extended:true}))
-// // let comments = [
-// //     {
-// //         id:0,
-// //         username:"Sam",
-// //         comment:"chitkara is a nice university 0"
-// //     },
-// //     {
-// //         id:1,
-// //         username:"g2",
-// //         comment:"chitkara is a nice university 1"
-// //     },
-// //     {
-// //         id:2,
-// //         username:"vohra",
-// //         comment:"chitkara is a nice university 2"
-// //     }
-// // ]
+// let express= require('express')
+// let app= express()
+// app.set('view engine','ejs')
+// app.use(express.static('public'))
+// app.use(express.urlencoded({extended:true}))
+// let comments = [
+//     {
+//         id:0,
+//         username:"Sam",
+//         comment:"chitkara is a nice university 0"
+//     },
+//     {
+//         id:1,
+//         username:"g2",
+//         comment:"chitkara is a nice university 1"
+//     },
+//     {
+//         id:2,
+//         username:"vohra",
+//         comment:"chitkara is a nice university 2"
+//     }
+// ]
 
-// // app.get('/',(req,res)=>{
-// //     res.render('home',{comments})
+// app.get('/',(req,res)=>{
+//     res.render('home',{comments})
 
+// })
+// app.get('/form',(req,res)=>{
+//     res.render('form10')
+
+// })
+// app.post('/user',(req,res)=>{
+//     console.log(req.body);
+//     // comments.push(req.body)
+//     let {comment,username}=req.body
+//     comments.push({username,comment,id:comments.length})
+//     res.redirect('/')
+//     // res.send('hehehe')
+
+// })
+
+// app.listen(4000,()=>{
+//     console.log('server running on port no 4000');
+
+// })
+
+
+// // let e= require('express')
+// // let mongoose= require('mongoose')
+// // mongoose.connect('mongodb://127.0.0.1:27017/fsd10').then(()=>{
+// //     console.log('heheh');
+
+// // }).catch((err)=>{
+// //     console.log(err);
+    
 // // })
-// // app.get('/form',(req,res)=>{
-// //     res.render('form10')
 
+// //  let app= e()
+
+// //  app.get('/',(req,res)=>{
+// //     res.send('hehehe')
+// //  })
+// //  app.listen(5000,()=>{
+// //     console.log('server running on port no 5k');
+
+// //  })
+
+
+
+
+// //  let e= require('express')
+// // let mongoose=  require('mongoose')
+// // mongoose.connect('mongodb://127.0.0.1:27017/fsd1').then(()=>{
+// //     console.log('db ');
+
+// // }).catch((err)=>{
+// //     console.log(err);
 // // })
-// // app.post('/user',(req,res)=>{
-// //     // console.log(req.body);
-// //     // comments.push(req.body)
-// //     let {comment,username}=req.body
-// //     comments.push({username,comment,id:comments.length})
-// //     res.redirect('/')
-// //     // res.send('hehehe')
 
-// // })
+// //  let app=  e()
 
-// // app.listen(4000,()=>{
-// //     console.log('server running on port no 4000');
 
-// // })
+// //  app.get('/',(req,res)=>{
+// //     res.send('hello')
+
+// //  })
+
+// //  app.listen(5000,()=>{
+// //     console.log('server chal gyaa');
+
+// //  })
+
+
+
+// //  show dbs
+
+
+// //  use  databasename
+
+// //terminal
+// // // 1. show databases or show dbs //displays all the dbs in your system
+// // // 2. db //shows the db where you are currently working (test)
+// // 3. use moviesDB //the database you want to work with right now 
+// // 4. db.dropDatabase() //deletes the entire database from the system.
+// // // 5. use moviesDB //create a new database
+// // 6. db.createCollection('user') //creates collection
+// // 7. db.collection.drop() //removes collection
+// // //but this movies DB is not shown in the show dbs because it needs to have 
+// // //some value in it before displaying.
+
+
+// // //terminal
+
+// // // //TO CREATE
+// //insert 1 element
+// // 1. db.movies.insertOne({name:'superman' , imdb:7.7});
+// //insert many elements
+// // 2.db.movies.insertMany([ {name:'m1', imdb:6},{name:'m2', imdb:7} ]);
+
+
+// // // //TO READ
+// // // //1. to find all the documents
+// // db.movies.find();
+// // // //2. to find with conditions
+// // db.movies.find({imdb:5 , name:'superman'})
+// // // //TO UPDATE
+// // //1. to update 1 document
+// // db.movies.updateOne({name:'superman'},{$set:{imdb:10}})
+// // //2. to update many changes in 1 document
+// // db.movies.updateOne({name:'superman'},{$set:{imdb:10,name:"samarth"}});
+// //3. to update many documents at once
+// db.movies.updateMany({imdb:7},{$set:{imdb:8,name:"sam"}})
+
+
+// //TO DELETE
+//1. to delete 1 document
+// db.movies.deleteOne({name:'samarth'})
+// //2. to delete many documents
+// db.movies.deleteOne({})
+
+let express=  require('express')
+let mongoose=  require('mongoose')
+let app=   express()
+mongoose.connect('mongodb://localhost:27017/yourData').then(()=>{
+    console.log('chal gyaa');
+
+}).catch((err)=>{
+    console.log(err);
+
+})
+     let userSchema=    mongoose.Schema({
+        name:String,
+        lastName:String,
+        age:Number
+     })
+    let User=   mongoose.model('user',userSchema)
+   let data=    new User({name:"yash",lastName:"gautam",age:16})
+   data.save()
+ app.listen(5000,()=>{
+    console.log('server running on port no 5000');
+
+ })
+
+
+
 
 

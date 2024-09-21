@@ -45,13 +45,20 @@ let express= require('express')
 
 let arr=[1,2,3,4,2,34,2,4,2,4,2,4,2,42,4,6,7,3,6,5]
 app.get('/',(req,res)=>{
-    res.render('index',{arr})
+    res.render('index')
 })
 
 app.get('/search',(req,res)=>{
     console.log(req.query,"j");
     res.send('heheheh')
 
+})
+// REST api
+app.get('/user',(req,res)=>{
+    res.send('hehehe')
+})
+app.post('/user',(req,res)=>{
+    res.send('hehehe')
 })
 // Dynamic routing
 app.get('/:data',(req,res)=>{

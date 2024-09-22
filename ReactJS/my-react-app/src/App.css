@@ -1,5 +1,10 @@
-div{
-  background-color: red;
-  height: 100px;
-  width: 100px;
+nav{
+  display: flex;
+  justify-content: space-between;
+  background-color: black;
+  height: 50px;
+  align-items: center;
+}
+li{
+  color: aliceblue;
 }

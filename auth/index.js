@@ -1,9 +1,11 @@
 let express=  require('express')
 let mongoose= require('mongoose')
 const User = require('./model/user')
+ let cors=  require('cors')
   let bcrypt=   require('bcrypt')
  let jwt=   require('jsonwebtoken')
 let app= express()
+app.use(cors())
 app.use(express.json())
 mongoose.connect('mongodb://localhost:27017/fsd10Auth').then(()=>{
     console.log('db');
@@ -39,34 +41,63 @@ app.post('/create', async(req,res)=>{
 
 
 
+
 })
 
-app.post('/login', async(req,res)=>{
-    let userLogin=req.body
-    // console.log(userLogin,"kyu nih mil rhe");
-        let user=  await  User.findOne({email:userLogin.email})
-        console.log(user,'dekhooo');
-        
-        if(user){
-           let validPass=     await bcrypt.compare(userLogin.passWord,user.passWord)
-           if(validPass){
-        let token=     jwt.sign({ email:user.email},'JDHFGIUERRGRFIWRRG')
-console.log(token);
 
-            res.send('login done')
+app.post('/login',async(req,res)=>{
+
+    let {email,passWord}=req.body
+        
+    let loginData=      await User.findOne({email})
+    if(!loginData){
+        res.send('pahle apna account creart kro ')
+    }
+    else{
+           let validPass=     await bcrypt.compare(passWord,loginData.passWord)
+
+           if(!validPass){
+
+            res.send('Invalid password')
+
            }
            else{
-            res.send('Invalid passWord sahi se yaad kro badam khaooo')
+            let token=   jwt.sign({email:loginData.email},'JFGBERGBUREIGHIERU')
+            console.log(token,'???');
+            
+            res.send('login ho gyaa ')
            }
-
-            // res.send('abhi login karaye hai ruke zara')
-        }
-        else{
-            res.send('sahi se yaad kro aapne account nhi create kiya...')
-        }
-
+    }
 
 })
+
+
+// app.post('/login', async(req,res)=>{
+//     let userLogin=req.body
+//     // console.log(userLogin,"kyu nih mil rhe");
+//         let user=  await  User.findOne({email:userLogin.email})
+//         console.log(user,'dekhooo');
+        
+//         if(user){
+//            let validPass=     await bcrypt.compare(userLogin.passWord,user.passWord)
+//            if(validPass){
+//         let token=     jwt.sign({ email:user.email},'JDHFGIUERRGRFIWRRG')
+// console.log(token);
+
+//             res.send('login done')
+//            }
+//            else{
+//             res.send('Invalid passWord sahi se yaad kro badam khaooo')
+//            }
+
+//             // res.send('abhi login karaye hai ruke zara')
+//         }
+//         else{
+//             res.send('sahi se yaad kro aapne account nhi create kiya...')
+//         }
+
+
+// })
 
 app.listen(7000,()=>{
     console.log('server running on port no 7000');

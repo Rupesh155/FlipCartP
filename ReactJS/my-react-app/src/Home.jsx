@@ -1,13 +1,8 @@
 import React from 'react'
-import New from './New';
 
-const Home = (a) => {
-
-
+const Home = () => {
   return (
-    <div>
-<New b={a.data}/>
-    </div>
+    <div>Home</div>
   )
 }
 

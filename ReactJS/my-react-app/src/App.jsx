@@ -145,38 +145,79 @@
 // export default App
 
 
-import React, { useEffect, useState } from 'react'
+// import React, { useEffect, useState } from 'react'
 
+// const App = () => {
+
+//   let [Api,SetApi]=useState([])
+
+//   useEffect( ()=>{
+
+//     fetch('https://dummyjson.com/recipes').then((res)=>{
+//       return res.json()
+
+//     }).then((data)=>{
+//       console.log(data.recipes,"heheheheh");
+//       SetApi(data.recipes)
+
+//     })
+//   },[])
+//   return (
+//     <div>
+//       {
+//         Api.map((val)=>{
+
+//           return (<>
+//           <h3> {val.id}</h3>
+//           <p>{val.name}</p>
+//           <img   height='100px'  src={val.image}/>
+//           </>)
+
+//         })
+//       }
+//     </div>
+//   )
+// }
+
+// export default App
+
+
+
+import React from 'react'
+
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+
+import SignUp from './SignUp'
+import Login from './Login'
 const App = () => {
-
-  let [Api,SetApi]=useState([])
-
-  useEffect( ()=>{
-
-    fetch('https://dummyjson.com/recipes').then((res)=>{
-      return res.json()
-
-    }).then((data)=>{
-      console.log(data.recipes,"heheheheh");
-      SetApi(data.recipes)
-
-    })
-  },[])
   return (
     <div>
-      {
-        Api.map((val)=>{
+       <Router>   
 
-          return (<>
-          <h3> {val.id}</h3>
-          <p>{val.name}</p>
-          <img   height='100px'  src={val.image}/>
-          </>)
-
-        })
-      }
+      <Routes>
+        <Route    path='/'  element={<SignUp/>} />
+        <Route    path='/login'  element={<Login/>} />
+      </Routes>
+      </Router>
     </div>
   )
 }
 
 export default App
+
+
+// import React from 'react'
+// import NavBar from './NavBar'
+// import C from './C'
+
+// const App = () => {
+//   return (
+//     <div>
+//       {/* <NavBar/>
+//       <C/> */}
+
+//     </div>
+//   )
+// }
+
+// export default App

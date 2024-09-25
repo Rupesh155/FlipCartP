@@ -183,27 +183,27 @@
 
 
 
-import React from 'react'
+// import React from 'react'
 
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+// import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 
-import SignUp from './SignUp'
-import Login from './Login'
-const App = () => {
-  return (
-    <div>
-       <Router>   
+// import SignUp from './SignUp'
+// import Login from './Login'
+// const App = () => {
+//   return (
+//     <div>
+//        <Router>   
 
-      <Routes>
-        <Route    path='/'  element={<SignUp/>} />
-        <Route    path='/login'  element={<Login/>} />
-      </Routes>
-      </Router>
-    </div>
-  )
-}
+//       <Routes>
+//         <Route    path='/'  element={<SignUp/>} />
+//         <Route    path='/login'  element={<Login/>} />
+//       </Routes>
+//       </Router>
+//     </div>
+//   )
+// }
 
-export default App
+// export default App
 
 
 // import React from 'react'
@@ -221,3 +221,55 @@ export default App
 // }
 
 // export default App
+
+
+import React, { useState } from 'react'
+
+const App = () => {
+  let [input,SetInput]=useState({
+    name:"",
+    email:"",
+    password:""
+
+  })
+
+
+  function fun1(e){
+    let {name,value}=   e.target
+    // console.log(e.target.value);
+    SetInput({...input,[name]:value})
+    // console.log(input,"dekhoo");
+    
+    
+  }
+
+  function done(e){
+    e.preventDefault()
+    console.log('heheheh',input);
+    
+  }
+  return (
+    <div>
+    {/* <h1> Form</h1> */}
+
+
+    <fieldset>   
+      <legend> Form</legend>
+    <form   onSubmit={done}> 
+      <input  type='text' name='name' value={input.name}   onChange={fun1}  placeholder='Enter your name'/>
+      <br></br>
+      <br></br>
+
+      <input  type='email' name='email' value={input.email}  onChange={fun1}  placeholder='Enter your email'/>
+      <br></br>
+      <br></br>
+
+      <input  type='password'  name='password'  value={input.password}  onChange={fun1} placeholder='Enter your passWord'/>
+<button  type='submit'> save</button>
+    </form>
+    </fieldset>
+    </div>
+  )
+}
+
+export default App

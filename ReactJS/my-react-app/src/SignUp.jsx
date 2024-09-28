@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from 'axios'
+import { Link } from "react-router-dom";
 function SignUp() {
   // State variables to handle form data
   const [formData, setFormData] = useState({
@@ -70,6 +71,8 @@ function SignUp() {
 
         <button type="submit">Sign Up</button>
       </form>
+
+      <Link to='/login'> Login ka page</Link>
     </div>
   );
 }

@@ -365,29 +365,111 @@
 // console.log(eval(5+5-5/45));
 
 
- let inp=   document.querySelector('input')
-   let button = document.querySelectorAll('button')
-   for(let btn of button){
-    btn.addEventListener('click',(e)=>{
-        // console.log('heheheh');
-           let text=   e.target.innerText
-        //    console.log(text,"mil rha kya?/");
-        if(text==='C'){
-            inp.value=''
+//  let inp=   document.querySelector('input')
+//    let button = document.querySelectorAll('button')
+//    for(let btn of button){
+//     btn.addEventListener('click',(e)=>{
+//         // console.log('heheheh');
+//            let text=   e.target.innerText
+//         //    console.log(text,"mil rha kya?/");
+//         if(text==='C'){
+//             inp.value=''
 
-        }
-        else if(text==='='){
-            inp.value=   eval(inp.value)
-        }
-        else{
-            inp.value=inp.value+text
-        }
+//         }
+//         else if(text==='='){
+//             inp.value=   eval(inp.value)
+//         }
+//         else{
+//             inp.value=inp.value+text
+//         }
            
             
         
-    })
+//     })
 
-   }
+//    }
+
+
+
+// fetch('https://dummyjson.com/recipes').then((res)=>{
+//     // console.log('s');
+//     return res.json()
+    
+
+// }).then((data)=>{
+//     console.log(data);
+    
+
+// })
+
+
+//  async  function api(){
+//     try{
+//      let data=    await axios('https://dummyjson.com/recipes')
+//      console.log(data);
+     
+//     } catch{
+//         console.log('errrrrr');
+        
+
+//     }
+   
+
+// }
+// api()
+
+// let obj={
+//     id:1,
+//     name:"rahul",
+//     age:21
+// }
+// localStorage.setItem('user',JSON.stringify(obj))
+
+// let data= localStorage.getItem('user')
+// console.log(data);
+
+
+
+
+let form=  document.querySelector('#Signup')
+
+
+form.addEventListener('submit',()=>{
+    let name=  document.querySelector('#name').value
+
+    let email=   document.querySelector('#email').value
+     let passWord=  document.querySelector('#pass').value
+     let data={
+        name:name,
+        email:email,
+        pass:passWord
+     }
+     localStorage.setItem('user',JSON.stringify(data))
+
+
+})
+
+let loginForm=  document.querySelector('#login')
+
+loginForm.addEventListener('click',(e)=>{
+    e.preventDefault()
+    let data=     JSON.parse(localStorage.getItem('user'))  
+    console.log(data,"bhehe");
+    
+
+})
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

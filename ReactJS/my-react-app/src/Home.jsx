@@ -1,9 +1,12 @@
-import React from 'react'
-
+import React, { useContext } from 'react'
+import Context from './Context'
 const Home = () => {
+   let data=   useContext(Context)
   return (
-    <div>Home</div>
+    <div>
+      {data}
+    </div>
   )
 }
 
-export default Home
+export default Home        

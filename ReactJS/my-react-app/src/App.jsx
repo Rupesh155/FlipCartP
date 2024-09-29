@@ -379,3 +379,27 @@
 // }
 
 // export default App
+
+
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import SignUp from './SignUp';
+import Login from './Login'; 
+import Home from './Home';
+const App = () => {
+  return (
+    <Router>
+      <div>
+        {/* Define your routes here */}
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/signup" element={<SignUp />} />
+
+          <Route path="/login" element={<Login />} />
+        </Routes>
+      </div>
+    </Router>
+  );
+}
+
+export default App;

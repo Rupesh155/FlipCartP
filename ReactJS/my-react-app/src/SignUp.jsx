@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import axios from 'axios'
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
 function SignUp() {
+  let navigate=   useNavigate()
   // State variables to handle form data
   const [formData, setFormData] = useState({
     name: "",
@@ -19,13 +21,16 @@ function SignUp() {
   };
 
   // Handle form submission
-  const handleSubmit =   async(e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     console.log("Form Data Submitted: ", formData);
-       let data=  await axios.post('http://localhost:7000/create',formData)
-       console.log(data);
-       
-    // You can add your API call or validation logic here
+
+    // Save form data to localStorage
+    localStorage.setItem('user', JSON.stringify(formData));
+    navigate('/login')
+
+
+
   };
 
   return (

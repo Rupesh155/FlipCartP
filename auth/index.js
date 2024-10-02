@@ -105,54 +105,57 @@
 
 
 
-// const express = require('express');
-// const multer = require('multer');
-// const path = require('path');
+const express = require('express');
+const multer = require('multer');
+const path = require('path');
 
-// const app = express();
-// let cors=require('cors')
-// app.use(cors())
-// const fs = require('fs');
+const app = express();
+let cors=require('cors')
+app.use(cors())
+const fs = require('fs');
 
-// const uploadDir = './uploads';
-// if (!fs.existsSync(uploadDir)) {
-//   fs.mkdirSync(uploadDir);
-// }
+const uploadDir = './uploads';
+if (!fs.existsSync(uploadDir)) {
+  fs.mkdirSync(uploadDir);
+}
 
 
-// // Set up storage engine for Multer
-// const storage = multer.diskStorage({
-//   destination: (req, file, cb) => {
-//     cb(null, './uploads'); // Directory to store uploaded files
-//   },
-//   filename: (req, file, cb) => {
-//     cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
-//   },
-// });
+// Set up storage engine for Multer
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, './uploads'); // Directory to store uploaded files
+  },
+  filename: (req, file, cb) => {
+    cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
+  },
+});
 
-// const upload = multer({
-//     storage: storage,
-//     limits: { fileSize: 5 * 1024 * 1024 }, // Set file size limit to 5MB
-//   }).single('file');
+const upload = multer({
+    storage: storage,
+    limits: { fileSize: 5 * 1024 * 1024 }, // Set file size limit to 5MB
+  }).single('file');
 
-// app.post('/upload', (req, res) => {
-//     upload(req, res, (err) => {
-//       if (err instanceof multer.MulterError) {
-//         // A Multer error occurred
-//         return res.status(500).json({ message: `Multer Error: ${err.message}` });
-//       } else if (err) {
-//         // Other unknown errors
-//         return res.status(500).json({ message: `Unknown Error: ${err.message}` });
-//       }
-//       res.status(200).send('File uploaded successfully');
-//     });
-//   });o
+app.post('/upload', (req, res) => {
+    upload(req, res, (err) => {
+      if (err instanceof multer.MulterError) {
+        // A Multer error occurred
+        return res.status(500).json({ message: `Multer Error: ${err.message}` });
+      } else if (err) {
+        // Other unknown errors
+        return res.status(500).json({ message: `Unknown Error: ${err.message}` });
+      }
+      else{
+        res.status(200).send('File uploaded successfully');
+
+      }
+    });
+  });
   
 
-// // Middleware for static files
-// app.use('/uploads', express.static('uploads'));
+// Middleware for static files
+app.use('/uploads', express.static('uploads'));
 
-// const PORT = process.env.PORT || 5000;
-// app.listen(PORT, () => {
-//   console.log(`Server running on port ${PORT}`);
-// });
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});

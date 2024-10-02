@@ -14,14 +14,10 @@ const Multer = () => {
     formData.append('file', file);
 
     try {
-      const res = await axios.post('http://localhost:5000/upload', formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
-      });
+      const res = await axios.post('http://localhost:5000/upload', formData);
       setMessage(res.data);
     } catch (err) {
-      console.error(err);
+      console.error(err); 
       setMessage('Error uploading file.');
     }
   };
@@ -32,7 +28,7 @@ const Multer = () => {
       <input type="file" onChange={onFileChange} />
       <button onClick={onFileUpload}>Upload</button>
       <p>{message}</p>
-    </div>
+    </div>             
   );
 };
 

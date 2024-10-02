@@ -276,130 +276,147 @@
 
 // import React, { useReducer } from 'react'
 //  import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
-// import SignUp from './SignUp'
-// import Login from './Login'
+// // import SignUp from './SignUp'
+// // import Login from './Login'
+// // const App = () => {
+// //   return (
+// //     <div>
+// //       <Router>
+// //    <Routes>
+// //     <Route   path='/'  element={<SignUp/>}/>
+// //     <Route   path='/login'  element={<Login/>}/>
+
+// //    </Routes>
+// //       </Router>
+// //     </div>
+// //   )
+// // }
+
+// // export default App
+
+// // useReducer
+
+// // import React from 'react'
+// // import Multer from './Multer'
+
+// // const App = () => {
+// //   return (
+// //     <div>
+// //       <Multer/>
+// //     </div>
+// //   )
+// // }
+
+// // export default App
+
+
+
+// // import React, { useReducer } from 'react'
+
+// // const App = () => {
+// //   function reduser(count,action){
+// //     if(action.type==='incre'){
+// //       return count+=1
+// //     }
+
+// //   }
+// //   let [count,dispatch]  =  useReducer(reduser,0)
+// //   function fun1(){
+// //     dispatch({type:"incre"})
+// //   }
+// //   return (
+// //     <div>
+
+// //       <h2>{count}</h2>
+// //       <button onClick={fun1}> click</button>
+// //     </div>
+// //   )
+// // }
+
+// // export default App
+
+
+// // import React, { useReducer } from 'react'
+// // const App = () => {
+// //     function reduser(count,action){
+// //         if(action.type==='incre'){
+// //             return count+=1
+// //         }
+// //         else if(action.type==='deccc'){
+// //             return count-=1
+// //         }
+// //         else{
+// //             return count
+// //         }
+// //     }
+// //       let [count,dispatch]=  useReducer(reduser,0)                   
+// //     //   function fun1(){
+// //     //     dispatch({type:"incre"})
+
+// //     //   }
+// //   return ( 
+// //     <div>
+// //       <h3> {count}</h3>
+// //       <button onClick={()=>dispatch({type:"incre"})}> ++ </button>
+// //       <button onClick={()=>dispatch({type:"deccc"})}> __ </button>
+
+// //     </div>
+// //   )
+// // }
+
+// // export default App
+
+
+// // import React from 'react'
+// // import Home from './Home'
+
+// // const App = () => {
+// //   return (
+// //     <div>
+// //         <Home/>
+// //     </div>
+// //   )
+// // }
+
+// // export default App
+
+
+// import React from 'react';
+// import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+// import SignUp from './SignUp';
+// import Login from './Login'; 
+// import Home from './Home';
 // const App = () => {
 //   return (
-//     <div>
-//       <Router>
-//    <Routes>
-//     <Route   path='/'  element={<SignUp/>}/>
-//     <Route   path='/login'  element={<Login/>}/>
+//     <Router>
+//       <div>
+//         {/* Define your routes here */}
+//         <Routes>
+//           <Route path="/" element={<Home />} />
+//           <Route path="/signup" element={<SignUp />} />
 
-//    </Routes>
-//       </Router>
-//     </div>
-//   )
+//           <Route path="/login" element={<Login />} />
+//         </Routes>
+//       </div>
+//     </Router>
+//   );
 // }
 
-// export default App
-
-// useReducer
-
-// import React from 'react'
-// import Multer from './Multer'
-
-// const App = () => {
-//   return (
-//     <div>
-//       <Multer/>
-//     </div>
-//   )
-// }
-
-// export default App
+// export default App;
 
 
 
-// import React, { useReducer } from 'react'
 
-// const App = () => {
-//   function reduser(count,action){
-//     if(action.type==='incre'){
-//       return count+=1
-//     }
-
-//   }
-//   let [count,dispatch]  =  useReducer(reduser,0)
-//   function fun1(){
-//     dispatch({type:"incre"})
-//   }
-//   return (
-//     <div>
-
-//       <h2>{count}</h2>
-//       <button onClick={fun1}> click</button>
-//     </div>
-//   )
-// }
-
-// export default App
+import React from 'react'
+import Api from './Api'
 
 
-// import React, { useReducer } from 'react'
-// const App = () => {
-//     function reduser(count,action){
-//         if(action.type==='incre'){
-//             return count+=1
-//         }
-//         else if(action.type==='deccc'){
-//             return count-=1
-//         }
-//         else{
-//             return count
-//         }
-//     }
-//       let [count,dispatch]=  useReducer(reduser,0)                   
-//     //   function fun1(){
-//     //     dispatch({type:"incre"})
-
-//     //   }
-//   return ( 
-//     <div>
-//       <h3> {count}</h3>
-//       <button onClick={()=>dispatch({type:"incre"})}> ++ </button>
-//       <button onClick={()=>dispatch({type:"deccc"})}> __ </button>
-
-//     </div>
-//   )
-// }
-
-// export default App
-
-
-// import React from 'react'
-// import Home from './Home'
-
-// const App = () => {
-//   return (
-//     <div>
-//         <Home/>
-//     </div>
-//   )
-// }
-
-// export default App
-
-
-import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import SignUp from './SignUp';
-import Login from './Login'; 
-import Home from './Home';
 const App = () => {
   return (
-    <Router>
-      <div>
-        {/* Define your routes here */}
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/signup" element={<SignUp />} />
-
-          <Route path="/login" element={<Login />} />
-        </Routes>
-      </div>
-    </Router>
-  );
+    <div>
+        <Api/>
+    </div>
+  )
 }
 
-export default App;
+export default App

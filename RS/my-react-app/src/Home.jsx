@@ -1,9 +1,17 @@
 import React from 'react'
+import A from './A'
+const Home = ( data ) => {
 
-const Home = () => {
+    
   return (
-    <div>Home  fileeeeeeee   </div>
+    <div>Home  fileeeeeeee 
+        <A   b={data.a}  />
+    
+          </div>
   )
 }
 
 export default Home
+
+
+
